@@ -148,9 +148,9 @@ Tab readChord(std::ifstream& inputStream, Note* notes) {
     if (*reinterpret_cast<int*>(&tab) == 0) {
         return tab;
     }
-    std::cout << std::hex;
-    std::cout << "tab: " << *reinterpret_cast<int*>(&tab) << std::endl;
-    std::cout << std::dec;
+//    std::cout << std::hex;
+//    std::cout << "tab: " << *reinterpret_cast<int*>(&tab) << std::endl;
+//    std::cout << std::dec;
 
     if (tab.firstStr) {
         // std::cout << "reading first note" << std::endl;

@@ -221,16 +221,16 @@ Beat readBeat(std::ifstream& inputStream) {
         beat.status = readData<char>(inputStream);
     }
 
-    std::cout << "reading duration" << std::endl;
+//    std::cout << "reading duration" << std::endl;
     beat.duration = readData<char>(inputStream);
-    std::cout << "duration: " << (int)beat.duration << std::endl;
+//    std::cout << "duration: " << (int)beat.duration << std::endl;
 
-    std::cout << "reading tuplet" << std::endl;
+//    std::cout << "reading tuplet" << std::endl;
     if (beat.header.isNTuplet) {
         beat.nTuplet = readData<int>(inputStream);
     }
 
-    std::cout << "reading chord diagram" << std::endl;
+//    std::cout << "reading chord diagram" << std::endl;
     if (beat.header.containsChordDiagram) {
         beat.chordsCount = readData<char>(inputStream); // int
 
@@ -240,7 +240,7 @@ Beat readBeat(std::ifstream& inputStream) {
         }
     }
 
-    std::cout << "reading text" << std::endl;
+//    std::cout << "reading text" << std::endl;
     if (beat.header.containsText) {
         beat.text = readDataBlock(inputStream, 1);
     }

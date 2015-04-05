@@ -10,7 +10,7 @@ std::string readNotice(std::ifstream& inputStream) {
 
 void readLyrics(std::ifstream& inputStream) { 
     int trackNumber = readData<int>(inputStream);
-    std::cout << "track number: " << trackNumber << std::endl;
+//    std::cout << "track number: " << trackNumber << std::endl;
 
     for (int i = 0; i < 5; ++i) {
         int size = readData<int>(inputStream);
@@ -299,30 +299,30 @@ GP4Data readGP4Data(std::ifstream& inputStream) {
     GP4Data gp4Data;  
 
     gp4Data.version = readString(inputStream);
-    std::cout << gp4Data.version << std::endl;
-    std::cout << std::endl;
+//    std::cout << gp4Data.version << std::endl;
+//    std::cout << std::endl;
 
     inputStream.ignore(30 - gp4Data.version.size());
 
     gp4Data.dataBlock = readDataBlock(inputStream, 8);
 
-    std::cout << std::endl << "notice: " << std::endl;
+//    std::cout << std::endl << "notice: " << std::endl;
     gp4Data.notice = readNotice(inputStream);
-    std::cout << gp4Data.notice << std::endl;
+//    std::cout << gp4Data.notice << std::endl;
 
     gp4Data.tripletFeel = readData<char>(inputStream);
-    std::cout << "triplet feel: " << gp4Data.tripletFeel << std::endl;
+//    std::cout << "triplet feel: " << gp4Data.tripletFeel << std::endl;
 
     readLyrics(inputStream);
 
     gp4Data.tempo = readData<int>(inputStream);
-    std::cout << "tempo: " << gp4Data.tempo << std::endl;
+//    std::cout << "tempo: " << gp4Data.tempo << std::endl;
 
     gp4Data.key = readData<char>(inputStream);
-    std::cout << std::endl << "key " << (int) gp4Data.key << std::endl;
+//    std::cout << std::endl << "key " << (int) gp4Data.key << std::endl;
 
     gp4Data.octave = readData<char>(inputStream);
-    std::cout << "octave: " << (int) gp4Data.octave << std::endl;
+//    std::cout << "octave: " << (int) gp4Data.octave << std::endl;
     inputStream.ignore(3);
 
     for (int i = 0; i < 4; ++i) {
@@ -335,11 +335,11 @@ GP4Data readGP4Data(std::ifstream& inputStream) {
     // printPorts(gp4Data.ports);
 
     gp4Data.measuresCount = readData<int>(inputStream);
-    std::cout << "measures count:" << gp4Data.measuresCount << std::endl;
+//    std::cout << "measures count:" << gp4Data.measuresCount << std::endl;
 
     gp4Data.tracksCount = readData<int>(inputStream);
-    std::cout << "tracks count:" << gp4Data.tracksCount << std::endl;
-    std::cout << std::endl;
+//    std::cout << "tracks count:" << gp4Data.tracksCount << std::endl;
+//    std::cout << std::endl;
 
     // gp4Data.measures.resize(gp4Data.measuresCount);
     for (int i = 0; i < gp4Data.measuresCount; ++i) {
@@ -368,19 +368,19 @@ GP4Data readGP4Data(std::ifstream& inputStream) {
     // }
 
     for (int i = 0; i < gp4Data.measuresCount; ++i) {
-        std::cout << "i: " << i << std::endl;
+//        std::cout << "i: " << i << std::endl;
 
         std::vector<std::vector<Beat>> trackBeats;
         for (int j = 0; j < gp4Data.tracksCount; ++j) {
-            std::cout << "j: " << j << std::endl;
+//            std::cout << "j: " << j << std::endl;
             int beatsCount = readData<int>(inputStream);
-            std::cout << "beats count " << beatsCount << std::endl;
+//            std::cout << "beats count " << beatsCount << std::endl;
 
             std::vector<Beat> beats;
             for (int k = 0; k < beatsCount; ++k) {
-                std::cout << "k: " << k << std::endl;
+//                std::cout << "k: " << k << std::endl;
                 Beat beat = readBeat(inputStream);
-                printBeat(beat);
+//                printBeat(beat);
                 beats.push_back(beat);
             }
             trackBeats.push_back(beats);

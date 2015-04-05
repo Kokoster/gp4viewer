@@ -6,6 +6,7 @@
 #include "SDL.h"
 #include "Window.h"
 #include "Renderer.h"
+#include "gp4Renderer.h"
 
 #include "gp4data.h"
 #include "gp4reader.h"
@@ -15,6 +16,7 @@ int main(int argc, char const *argv[])
     SDL sdl;
     Window window;
     Renderer renderer(window);
+    GP4Renderer  gp4Renderer(&renderer, &window);
     
     if (argc < 2) {
         std::cout << "Usage: dp4viewer <filename>" << std::endl;
@@ -34,7 +36,22 @@ int main(int argc, char const *argv[])
 
     GP4Data gp4Data = readGP4Data(inputStream);
 
-//     gp4Render(gp4Data);
+    gp4Renderer.renderGP4Data(gp4Data);
+    renderer.present();
+    
+    while (1) {
+        SDL_Event e;
+        bool exit = false;
+        
+        while (SDL_PollEvent(&e)) {
+            if (e.key.keysym.sym == SDLK_ESCAPE) {
+                exit = true;
+                break;
+            }
+        }
+        
+        if (exit) break;
+    };
 
     return 0;
 }

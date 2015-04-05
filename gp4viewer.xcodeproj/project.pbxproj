@@ -38,6 +38,7 @@
 		6A7264781AD1499500B4E15B /* renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264721AD1499500B4E15B /* renderer.cpp */; };
 		6A7264791AD1499500B4E15B /* SDL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264741AD1499500B4E15B /* SDL.cpp */; };
 		6A72647A1AD1499500B4E15B /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264761AD1499500B4E15B /* window.cpp */; };
+		6A7264831AD152C700B4E15B /* gp4renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264811AD152C700B4E15B /* gp4renderer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +97,8 @@
 		6A7264751AD1499500B4E15B /* SDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL.h; sourceTree = "<group>"; };
 		6A7264761AD1499500B4E15B /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
 		6A7264771AD1499500B4E15B /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
+		6A7264811AD152C700B4E15B /* gp4renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gp4renderer.cpp; sourceTree = "<group>"; };
+		6A7264821AD152C700B4E15B /* gp4renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gp4renderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +213,8 @@
 				6A7264741AD1499500B4E15B /* SDL.cpp */,
 				6A7264771AD1499500B4E15B /* window.h */,
 				6A7264761AD1499500B4E15B /* window.cpp */,
+				6A7264821AD152C700B4E15B /* gp4renderer.h */,
+				6A7264811AD152C700B4E15B /* gp4renderer.cpp */,
 			);
 			path = render;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			files = (
 				6A72642F1AD1415500B4E15B /* common.cpp in Sources */,
 				6A7264311AD1415500B4E15B /* gp4reader.cpp in Sources */,
+				6A7264831AD152C700B4E15B /* gp4renderer.cpp in Sources */,
 				6A7264341AD1415500B4E15B /* main.cpp in Sources */,
 				6A7264791AD1499500B4E15B /* SDL.cpp in Sources */,
 				6A72647A1AD1499500B4E15B /* window.cpp in Sources */,

@@ -47,3 +47,15 @@ int Renderer::getHeight() const {
     return h;
 }
 
+void Renderer::clear() {
+    SDL_RenderClear(renderer);
+}
+
+void Renderer::setColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a) {
+    SDL_SetRenderDrawColor(renderer, r, g, b, a);
+}
+
+void Renderer::drawLine(int x1, int y1, int x2, int y2) {
+    SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+}
+
