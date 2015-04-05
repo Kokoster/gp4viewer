@@ -7,37 +7,95 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A7263F41AD13A2600B4E15B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7263F31AD13A2600B4E15B /* AppDelegate.m */; };
-		6A7263F61AD13A2600B4E15B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7263F51AD13A2600B4E15B /* main.m */; };
 		6A7263F91AD13A2600B4E15B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7263F81AD13A2600B4E15B /* ViewController.m */; };
-		6A7263FB1AD13A2600B4E15B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A7263FA1AD13A2600B4E15B /* Images.xcassets */; };
-		6A7263FE1AD13A2600B4E15B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7263FC1AD13A2600B4E15B /* Main.storyboard */; };
-		6A72640A1AD13A2600B4E15B /* gp4viewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264091AD13A2600B4E15B /* gp4viewerTests.m */; };
+		6A7264161AD13D8800B4E15B /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A7264151AD13D8800B4E15B /* SDL2.framework */; };
+		6A72641A1AD13F5400B4E15B /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6A7264151AD13D8800B4E15B /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6A72642D1AD1415500B4E15B /* beat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A72641C1AD1415500B4E15B /* beat.cpp */; };
+		6A72642F1AD1415500B4E15B /* common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A72641F1AD1415500B4E15B /* common.cpp */; };
+		6A7264311AD1415500B4E15B /* gp4reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264231AD1415500B4E15B /* gp4reader.cpp */; };
+		6A7264341AD1415500B4E15B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264281AD1415500B4E15B /* main.cpp */; };
+		6A7264361AD1415500B4E15B /* note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A72642A1AD1415500B4E15B /* note.cpp */; };
+		6A72644D1AD1416100B4E15B /* 1note.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264391AD1416100B4E15B /* 1note.gp4 */; };
+		6A72644E1AD1416100B4E15B /* 2.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72643A1AD1416100B4E15B /* 2.gp4 */; };
+		6A72644F1AD1416100B4E15B /* 2notes.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72643B1AD1416100B4E15B /* 2notes.gp4 */; };
+		6A7264501AD1416100B4E15B /* 3.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72643C1AD1416100B4E15B /* 3.gp4 */; };
+		6A7264511AD1416100B4E15B /* 4.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72643D1AD1416100B4E15B /* 4.gp4 */; };
+		6A7264521AD1416100B4E15B /* 4notes.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72643E1AD1416100B4E15B /* 4notes.gp4 */; };
+		6A7264531AD1416100B4E15B /* 5.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72643F1AD1416100B4E15B /* 5.gp4 */; };
+		6A7264541AD1416100B4E15B /* 6.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264401AD1416100B4E15B /* 6.gp4 */; };
+		6A7264551AD1416100B4E15B /* 7.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264411AD1416100B4E15B /* 7.gp4 */; };
+		6A7264561AD1416100B4E15B /* 8.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264421AD1416100B4E15B /* 8.gp4 */; };
+		6A7264571AD1416100B4E15B /* Bon Jovi - It's my life.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264431AD1416100B4E15B /* Bon Jovi - It's my life.gp4 */; };
+		6A7264581AD1416100B4E15B /* changetrack3.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264441AD1416100B4E15B /* changetrack3.gp4 */; };
+		6A7264591AD1416100B4E15B /* changevalue.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264451AD1416100B4E15B /* changevalue.gp4 */; };
+		6A72645A1AD1416100B4E15B /* green_day-boulevard_of_broken_dreams_2.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264461AD1416100B4E15B /* green_day-boulevard_of_broken_dreams_2.gp4 */; };
+		6A72645B1AD1416100B4E15B /* Linkin Park - Somewhere I Belong (5).gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264471AD1416100B4E15B /* Linkin Park - Somewhere I Belong (5).gp4 */; };
+		6A72645C1AD1416100B4E15B /* Linkin_Park-Somewhere_I_Belong.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264481AD1416100B4E15B /* Linkin_Park-Somewhere_I_Belong.gp4 */; };
+		6A72645D1AD1416100B4E15B /* metallica-the_day_that_never_comes.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A7264491AD1416100B4E15B /* metallica-the_day_that_never_comes.gp4 */; };
+		6A72645E1AD1416100B4E15B /* nonenotes.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72644A1AD1416100B4E15B /* nonenotes.gp4 */; };
+		6A72645F1AD1416100B4E15B /* renbourn_john-the_moon_shines_bright.gp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72644B1AD1416100B4E15B /* renbourn_john-the_moon_shines_bright.gp4 */; };
+		6A7264601AD1416100B4E15B /* system_of_a_down-lonely_day_2.gp5 in Resources */ = {isa = PBXBuildFile; fileRef = 6A72644C1AD1416100B4E15B /* system_of_a_down-lonely_day_2.gp5 */; };
+		6A7264781AD1499500B4E15B /* renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264721AD1499500B4E15B /* renderer.cpp */; };
+		6A7264791AD1499500B4E15B /* SDL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264741AD1499500B4E15B /* SDL.cpp */; };
+		6A72647A1AD1499500B4E15B /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264761AD1499500B4E15B /* window.cpp */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6A7264041AD13A2600B4E15B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6A7263E51AD13A2600B4E15B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6A7263EC1AD13A2600B4E15B;
-			remoteInfo = gp4viewer;
+/* Begin PBXCopyFilesBuildPhase section */
+		6A7264191AD13F4700B4E15B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A72641A1AD13F5400B4E15B /* SDL2.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6A7263ED1AD13A2600B4E15B /* gp4viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gp4viewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7263F11AD13A2600B4E15B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A7263F21AD13A2600B4E15B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6A7263F31AD13A2600B4E15B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6A7263F51AD13A2600B4E15B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A7263F71AD13A2600B4E15B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6A7263F81AD13A2600B4E15B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6A7263FA1AD13A2600B4E15B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6A7263FD1AD13A2600B4E15B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6A7264031AD13A2600B4E15B /* gp4viewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gp4viewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A7264081AD13A2600B4E15B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6A7264091AD13A2600B4E15B /* gp4viewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gp4viewerTests.m; sourceTree = "<group>"; };
+		6A7264151AD13D8800B4E15B /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = gp4viewer/lib/SDL2.framework; sourceTree = "<group>"; };
+		6A72641C1AD1415500B4E15B /* beat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = beat.cpp; sourceTree = "<group>"; };
+		6A72641D1AD1415500B4E15B /* beat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beat.h; sourceTree = "<group>"; };
+		6A72641F1AD1415500B4E15B /* common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = common.cpp; sourceTree = "<group>"; };
+		6A7264201AD1415500B4E15B /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		6A7264221AD1415500B4E15B /* gp4data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gp4data.h; sourceTree = "<group>"; };
+		6A7264231AD1415500B4E15B /* gp4reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gp4reader.cpp; sourceTree = "<group>"; };
+		6A7264241AD1415500B4E15B /* gp4reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gp4reader.h; sourceTree = "<group>"; };
+		6A7264281AD1415500B4E15B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6A72642A1AD1415500B4E15B /* note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = note.cpp; sourceTree = "<group>"; };
+		6A72642B1AD1415500B4E15B /* note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = note.h; sourceTree = "<group>"; };
+		6A7264391AD1416100B4E15B /* 1note.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1note.gp4; sourceTree = "<group>"; };
+		6A72643A1AD1416100B4E15B /* 2.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.gp4; sourceTree = "<group>"; };
+		6A72643B1AD1416100B4E15B /* 2notes.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2notes.gp4; sourceTree = "<group>"; };
+		6A72643C1AD1416100B4E15B /* 3.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3.gp4; sourceTree = "<group>"; };
+		6A72643D1AD1416100B4E15B /* 4.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.gp4; sourceTree = "<group>"; };
+		6A72643E1AD1416100B4E15B /* 4notes.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4notes.gp4; sourceTree = "<group>"; };
+		6A72643F1AD1416100B4E15B /* 5.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.gp4; sourceTree = "<group>"; };
+		6A7264401AD1416100B4E15B /* 6.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6.gp4; sourceTree = "<group>"; };
+		6A7264411AD1416100B4E15B /* 7.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 7.gp4; sourceTree = "<group>"; };
+		6A7264421AD1416100B4E15B /* 8.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8.gp4; sourceTree = "<group>"; };
+		6A7264431AD1416100B4E15B /* Bon Jovi - It's my life.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bon Jovi - It's my life.gp4"; sourceTree = "<group>"; };
+		6A7264441AD1416100B4E15B /* changetrack3.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = changetrack3.gp4; sourceTree = "<group>"; };
+		6A7264451AD1416100B4E15B /* changevalue.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = changevalue.gp4; sourceTree = "<group>"; };
+		6A7264461AD1416100B4E15B /* green_day-boulevard_of_broken_dreams_2.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "green_day-boulevard_of_broken_dreams_2.gp4"; sourceTree = "<group>"; };
+		6A7264471AD1416100B4E15B /* Linkin Park - Somewhere I Belong (5).gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Linkin Park - Somewhere I Belong (5).gp4"; sourceTree = "<group>"; };
+		6A7264481AD1416100B4E15B /* Linkin_Park-Somewhere_I_Belong.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Linkin_Park-Somewhere_I_Belong.gp4"; sourceTree = "<group>"; };
+		6A7264491AD1416100B4E15B /* metallica-the_day_that_never_comes.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "metallica-the_day_that_never_comes.gp4"; sourceTree = "<group>"; };
+		6A72644A1AD1416100B4E15B /* nonenotes.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nonenotes.gp4; sourceTree = "<group>"; };
+		6A72644B1AD1416100B4E15B /* renbourn_john-the_moon_shines_bright.gp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "renbourn_john-the_moon_shines_bright.gp4"; sourceTree = "<group>"; };
+		6A72644C1AD1416100B4E15B /* system_of_a_down-lonely_day_2.gp5 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "system_of_a_down-lonely_day_2.gp5"; sourceTree = "<group>"; };
+		6A7264721AD1499500B4E15B /* renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderer.cpp; sourceTree = "<group>"; };
+		6A7264731AD1499500B4E15B /* renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = renderer.h; sourceTree = "<group>"; };
+		6A7264741AD1499500B4E15B /* SDL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SDL.cpp; sourceTree = "<group>"; };
+		6A7264751AD1499500B4E15B /* SDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL.h; sourceTree = "<group>"; };
+		6A7264761AD1499500B4E15B /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
+		6A7264771AD1499500B4E15B /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,13 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7264001AD13A2600B4E15B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				6A7264161AD13D8800B4E15B /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				6A7263EF1AD13A2600B4E15B /* gp4viewer */,
-				6A7264061AD13A2600B4E15B /* gp4viewerTests */,
+				6A7264181AD13E7200B4E15B /* Frameworks */,
 				6A7263EE1AD13A2600B4E15B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				6A7263ED1AD13A2600B4E15B /* gp4viewer.app */,
-				6A7264031AD13A2600B4E15B /* gp4viewerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,11 +130,10 @@
 		6A7263EF1AD13A2600B4E15B /* gp4viewer */ = {
 			isa = PBXGroup;
 			children = (
-				6A7263F21AD13A2600B4E15B /* AppDelegate.h */,
-				6A7263F31AD13A2600B4E15B /* AppDelegate.m */,
+				6A7264381AD1416100B4E15B /* data */,
+				6A72641B1AD1415500B4E15B /* src */,
 				6A7263F71AD13A2600B4E15B /* ViewController.h */,
 				6A7263F81AD13A2600B4E15B /* ViewController.m */,
-				6A7263FA1AD13A2600B4E15B /* Images.xcassets */,
 				6A7263FC1AD13A2600B4E15B /* Main.storyboard */,
 				6A7263F01AD13A2600B4E15B /* Supporting Files */,
 			);
@@ -94,26 +144,74 @@
 			isa = PBXGroup;
 			children = (
 				6A7263F11AD13A2600B4E15B /* Info.plist */,
-				6A7263F51AD13A2600B4E15B /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6A7264061AD13A2600B4E15B /* gp4viewerTests */ = {
+		6A7264181AD13E7200B4E15B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A7264091AD13A2600B4E15B /* gp4viewerTests.m */,
-				6A7264071AD13A2600B4E15B /* Supporting Files */,
+				6A7264151AD13D8800B4E15B /* SDL2.framework */,
 			);
-			path = gp4viewerTests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6A7264071AD13A2600B4E15B /* Supporting Files */ = {
+		6A72641B1AD1415500B4E15B /* src */ = {
 			isa = PBXGroup;
 			children = (
-				6A7264081AD13A2600B4E15B /* Info.plist */,
+				6A7264711AD1499500B4E15B /* render */,
+				6A7264281AD1415500B4E15B /* main.cpp */,
+				6A72641D1AD1415500B4E15B /* beat.h */,
+				6A72641C1AD1415500B4E15B /* beat.cpp */,
+				6A7264201AD1415500B4E15B /* common.h */,
+				6A72641F1AD1415500B4E15B /* common.cpp */,
+				6A7264221AD1415500B4E15B /* gp4data.h */,
+				6A7264241AD1415500B4E15B /* gp4reader.h */,
+				6A7264231AD1415500B4E15B /* gp4reader.cpp */,
+				6A72642B1AD1415500B4E15B /* note.h */,
+				6A72642A1AD1415500B4E15B /* note.cpp */,
 			);
-			name = "Supporting Files";
+			path = src;
+			sourceTree = "<group>";
+		};
+		6A7264381AD1416100B4E15B /* data */ = {
+			isa = PBXGroup;
+			children = (
+				6A7264391AD1416100B4E15B /* 1note.gp4 */,
+				6A72643A1AD1416100B4E15B /* 2.gp4 */,
+				6A72643B1AD1416100B4E15B /* 2notes.gp4 */,
+				6A72643C1AD1416100B4E15B /* 3.gp4 */,
+				6A72643D1AD1416100B4E15B /* 4.gp4 */,
+				6A72643E1AD1416100B4E15B /* 4notes.gp4 */,
+				6A72643F1AD1416100B4E15B /* 5.gp4 */,
+				6A7264401AD1416100B4E15B /* 6.gp4 */,
+				6A7264411AD1416100B4E15B /* 7.gp4 */,
+				6A7264421AD1416100B4E15B /* 8.gp4 */,
+				6A7264431AD1416100B4E15B /* Bon Jovi - It's my life.gp4 */,
+				6A7264441AD1416100B4E15B /* changetrack3.gp4 */,
+				6A7264451AD1416100B4E15B /* changevalue.gp4 */,
+				6A7264461AD1416100B4E15B /* green_day-boulevard_of_broken_dreams_2.gp4 */,
+				6A7264471AD1416100B4E15B /* Linkin Park - Somewhere I Belong (5).gp4 */,
+				6A7264481AD1416100B4E15B /* Linkin_Park-Somewhere_I_Belong.gp4 */,
+				6A7264491AD1416100B4E15B /* metallica-the_day_that_never_comes.gp4 */,
+				6A72644A1AD1416100B4E15B /* nonenotes.gp4 */,
+				6A72644B1AD1416100B4E15B /* renbourn_john-the_moon_shines_bright.gp4 */,
+				6A72644C1AD1416100B4E15B /* system_of_a_down-lonely_day_2.gp5 */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		6A7264711AD1499500B4E15B /* render */ = {
+			isa = PBXGroup;
+			children = (
+				6A7264731AD1499500B4E15B /* renderer.h */,
+				6A7264721AD1499500B4E15B /* renderer.cpp */,
+				6A7264751AD1499500B4E15B /* SDL.h */,
+				6A7264741AD1499500B4E15B /* SDL.cpp */,
+				6A7264771AD1499500B4E15B /* window.h */,
+				6A7264761AD1499500B4E15B /* window.cpp */,
+			);
+			path = render;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +224,7 @@
 				6A7263E91AD13A2600B4E15B /* Sources */,
 				6A7263EA1AD13A2600B4E15B /* Frameworks */,
 				6A7263EB1AD13A2600B4E15B /* Resources */,
+				6A7264191AD13F4700B4E15B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -135,24 +234,6 @@
 			productName = gp4viewer;
 			productReference = 6A7263ED1AD13A2600B4E15B /* gp4viewer.app */;
 			productType = "com.apple.product-type.application";
-		};
-		6A7264021AD13A2600B4E15B /* gp4viewerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6A7264101AD13A2600B4E15B /* Build configuration list for PBXNativeTarget "gp4viewerTests" */;
-			buildPhases = (
-				6A7263FF1AD13A2600B4E15B /* Sources */,
-				6A7264001AD13A2600B4E15B /* Frameworks */,
-				6A7264011AD13A2600B4E15B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6A7264051AD13A2600B4E15B /* PBXTargetDependency */,
-			);
-			name = gp4viewerTests;
-			productName = gp4viewerTests;
-			productReference = 6A7264031AD13A2600B4E15B /* gp4viewerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -165,10 +246,6 @@
 				TargetAttributes = {
 					6A7263EC1AD13A2600B4E15B = {
 						CreatedOnToolsVersion = 6.1;
-					};
-					6A7264021AD13A2600B4E15B = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 6A7263EC1AD13A2600B4E15B;
 					};
 				};
 			};
@@ -186,7 +263,6 @@
 			projectRoot = "";
 			targets = (
 				6A7263EC1AD13A2600B4E15B /* gp4viewer */,
-				6A7264021AD13A2600B4E15B /* gp4viewerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -196,15 +272,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A7263FB1AD13A2600B4E15B /* Images.xcassets in Resources */,
-				6A7263FE1AD13A2600B4E15B /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7264011AD13A2600B4E15B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				6A7264521AD1416100B4E15B /* 4notes.gp4 in Resources */,
+				6A72644E1AD1416100B4E15B /* 2.gp4 in Resources */,
+				6A7264501AD1416100B4E15B /* 3.gp4 in Resources */,
+				6A72645C1AD1416100B4E15B /* Linkin_Park-Somewhere_I_Belong.gp4 in Resources */,
+				6A72644D1AD1416100B4E15B /* 1note.gp4 in Resources */,
+				6A7264571AD1416100B4E15B /* Bon Jovi - It's my life.gp4 in Resources */,
+				6A7264591AD1416100B4E15B /* changevalue.gp4 in Resources */,
+				6A72645F1AD1416100B4E15B /* renbourn_john-the_moon_shines_bright.gp4 in Resources */,
+				6A72645D1AD1416100B4E15B /* metallica-the_day_that_never_comes.gp4 in Resources */,
+				6A72645A1AD1416100B4E15B /* green_day-boulevard_of_broken_dreams_2.gp4 in Resources */,
+				6A72645B1AD1416100B4E15B /* Linkin Park - Somewhere I Belong (5).gp4 in Resources */,
+				6A7264541AD1416100B4E15B /* 6.gp4 in Resources */,
+				6A7264531AD1416100B4E15B /* 5.gp4 in Resources */,
+				6A7264561AD1416100B4E15B /* 8.gp4 in Resources */,
+				6A7264551AD1416100B4E15B /* 7.gp4 in Resources */,
+				6A72644F1AD1416100B4E15B /* 2notes.gp4 in Resources */,
+				6A7264511AD1416100B4E15B /* 4.gp4 in Resources */,
+				6A7264581AD1416100B4E15B /* changetrack3.gp4 in Resources */,
+				6A72645E1AD1416100B4E15B /* nonenotes.gp4 in Resources */,
+				6A7264601AD1416100B4E15B /* system_of_a_down-lonely_day_2.gp5 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,29 +302,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A72642F1AD1415500B4E15B /* common.cpp in Sources */,
+				6A7264311AD1415500B4E15B /* gp4reader.cpp in Sources */,
+				6A7264341AD1415500B4E15B /* main.cpp in Sources */,
+				6A7264791AD1499500B4E15B /* SDL.cpp in Sources */,
+				6A72647A1AD1499500B4E15B /* window.cpp in Sources */,
 				6A7263F91AD13A2600B4E15B /* ViewController.m in Sources */,
-				6A7263F61AD13A2600B4E15B /* main.m in Sources */,
-				6A7263F41AD13A2600B4E15B /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6A7263FF1AD13A2600B4E15B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A72640A1AD13A2600B4E15B /* gp4viewerTests.m in Sources */,
+				6A7264781AD1499500B4E15B /* renderer.cpp in Sources */,
+				6A72642D1AD1415500B4E15B /* beat.cpp in Sources */,
+				6A7264361AD1415500B4E15B /* note.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6A7264051AD13A2600B4E15B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6A7263EC1AD13A2600B4E15B /* gp4viewer */;
-			targetProxy = 6A7264041AD13A2600B4E15B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6A7263FC1AD13A2600B4E15B /* Main.storyboard */ = {
@@ -332,6 +409,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gp4viewer/lib",
+				);
 				INFOPLIST_FILE = gp4viewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -343,45 +424,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gp4viewer/lib",
+				);
 				INFOPLIST_FILE = gp4viewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		6A7264111AD13A2600B4E15B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = gp4viewerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gp4viewer.app/Contents/MacOS/gp4viewer";
-			};
-			name = Debug;
-		};
-		6A7264121AD13A2600B4E15B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = gp4viewerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/gp4viewer.app/Contents/MacOS/gp4viewer";
 			};
 			name = Release;
 		};
@@ -402,14 +451,6 @@
 			buildConfigurations = (
 				6A72640E1AD13A2600B4E15B /* Debug */,
 				6A72640F1AD13A2600B4E15B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		6A7264101AD13A2600B4E15B /* Build configuration list for PBXNativeTarget "gp4viewerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6A7264111AD13A2600B4E15B /* Debug */,
-				6A7264121AD13A2600B4E15B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
