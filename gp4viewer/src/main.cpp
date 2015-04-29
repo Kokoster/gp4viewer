@@ -44,7 +44,9 @@ int main(int argc, char const *argv[])
         bool exit = false;
         
         while (SDL_PollEvent(&e)) {
-            if (e.key.keysym.sym == SDLK_ESCAPE) {
+            if (e.type == SDL_KEYDOWN &&
+                e.key.keysym.sym == SDLK_ESCAPE)
+            {
                 exit = true;
                 break;
             }

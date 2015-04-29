@@ -9,8 +9,9 @@
 #pragma once
 
 #include <SDL2/SDL.h>
-
 #include "window.h"
+
+class Texture;
 
 class Renderer {
 public:
@@ -21,7 +22,6 @@ public:
     void operator= (const Renderer& renderer) = delete;
     
     SDL_Renderer* getRenderer() const;
-    void clear() const;
     void copy(SDL_Texture* texture, const SDL_Rect& rect) const;
     void present() const;
     

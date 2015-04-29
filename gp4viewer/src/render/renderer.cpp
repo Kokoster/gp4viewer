@@ -1,5 +1,5 @@
 //
-//  Renderer.cpp
+//  Renderer.h
 //  TestSDL2
 //
 //  Created by Stanislav Krasnoyarov on 22/11/14.
@@ -20,14 +20,9 @@ SDL_Renderer* Renderer::getRenderer() const {
     return renderer;
 }
 
-void Renderer::clear() const {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
+void Renderer::copy(SDL_Texture* texture, const SDL_Rect& rect) const {
+    SDL_RenderCopy(renderer, texture, NULL, &rect);
 }
-
-//void Renderer::copy(SDL_Texture* texture, const SDL_Rect& rect) const {
-//    SDL_RenderCopy(renderer, texture, NULL, &rect);
-//}
 
 void Renderer::present() const {
     SDL_RenderPresent(renderer);

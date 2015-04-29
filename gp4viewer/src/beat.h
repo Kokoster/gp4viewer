@@ -100,12 +100,12 @@ struct BeatHeader {
 
 struct Beat {
     BeatHeader header;
-    Tab tab;
+    Chord chord;
     char status;
     char duration;
     int nTuplet;
     char chordsCount; // int
-    std::vector<ChordDiagram> chords;
+    std::vector<ChordDiagram> chordDiagram;
     std::string text;
     BeatEffects effects;
     ChangeEvent changeEvent;

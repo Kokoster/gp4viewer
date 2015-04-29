@@ -76,16 +76,16 @@ struct Note {
     NoteEffects effects;
 };
 
-struct Tab {
+struct Chord {
     bool _skip     : 1;
-    bool firstStr  : 1;
-    bool secondStr : 1;
-    bool thirdStr  : 1;
-    bool fourthStr : 1;
-    bool fifthStr  : 1;
     bool sixthStr  : 1;
+    bool fifthStr  : 1;
+    bool fourthStr : 1;
+    bool thirdStr  : 1;
+    bool secondStr : 1;
+    bool firstStr  : 1;
     bool _skip2    : 1;
 };
 
-Tab readChord(std::ifstream& inputStream, Note* notes);
+Chord readChord(std::ifstream& inputStream, Note* notes);
 void printNote(const Note& note);

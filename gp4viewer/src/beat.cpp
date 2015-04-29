@@ -236,7 +236,7 @@ Beat readBeat(std::ifstream& inputStream) {
 
         for (int i = 0; i < beat.chordsCount; ++i) {
             ChordDiagram chord = readChordDiagram(inputStream);
-            beat.chords.push_back(chord);
+            beat.chordDiagram.push_back(chord);
         }
     }
 
@@ -257,7 +257,7 @@ Beat readBeat(std::ifstream& inputStream) {
     }
 
     // std::cout << "reading chord" << std::endl;
-    beat.tab = readChord(inputStream, beat.notes);
+    beat.chord = readChord(inputStream, beat.notes);
 
     return beat;
 }
@@ -287,7 +287,7 @@ void printBeat(const Beat& beat) {
 
     for (int i = 0; i < beat.chordsCount; ++i) {
         std::cout << "chord " << i + 1 << std::endl;
-        printChord(beat.chords[i]);
+        printChord(beat.chordDiagram[i]);
     }
 
     std::cout << "text: " << beat.text << std::endl;

@@ -143,46 +143,46 @@ Note readNote(std::ifstream& inputStream) {
     return note;
 }
 
-Tab readChord(std::ifstream& inputStream, Note* notes) {
-    Tab tab = readData<Tab>(inputStream);
-    if (*reinterpret_cast<int*>(&tab) == 0) {
-        return tab;
+Chord readChord(std::ifstream& inputStream, Note* notes) {
+    Chord chord = readData<Chord>(inputStream);
+    if (*reinterpret_cast<int*>(&chord) == 0) {
+        return chord;
     }
 //    std::cout << std::hex;
 //    std::cout << "tab: " << *reinterpret_cast<int*>(&tab) << std::endl;
 //    std::cout << std::dec;
 
-    if (tab.firstStr) {
+    if (chord.firstStr) {
         // std::cout << "reading first note" << std::endl;
-        notes[0] = readNote(inputStream);
-    }
-
-    if (tab.secondStr) {
-        // std::cout << "reading second note" << std::endl;
-        notes[1] = readNote(inputStream);
-    }
-
-    if (tab.thirdStr) {
-        // std::cout << "reading third note" << std::endl;
-        notes[2] = readNote(inputStream);
-    }
-
-    if (tab.fourthStr) {
-        // std::cout << "reading fourth note" << std::endl;
-        notes[3] = readNote(inputStream);
-    }
-
-    if (tab.fifthStr) {
-        // std::cout << "reading fifth note" << std::endl;
-        notes[4] = readNote(inputStream);
-    }
-
-    if (tab.sixthStr) {
-        // std::cout << "reading sixth note" << std::endl;
         notes[5] = readNote(inputStream);
     }
 
-    return tab;
+    if (chord.secondStr) {
+        // std::cout << "reading second note" << std::endl;
+        notes[4] = readNote(inputStream);
+    }
+
+    if (chord.thirdStr) {
+        // std::cout << "reading third note" << std::endl;
+        notes[3] = readNote(inputStream);
+    }
+
+    if (chord.fourthStr) {
+        // std::cout << "reading fourth note" << std::endl;
+        notes[2] = readNote(inputStream);
+    }
+
+    if (chord.fifthStr) {
+        // std::cout << "reading fifth note" << std::endl;
+        notes[1] = readNote(inputStream);
+    }
+
+    if (chord.sixthStr) {
+        // std::cout << "reading sixth note" << std::endl;
+        notes[0] = readNote(inputStream);
+    }
+
+    return chord;
 }
 
 void printNoteEffects(const NoteEffects& effects) {
