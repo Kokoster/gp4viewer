@@ -28,10 +28,9 @@ public:
     
 private:
     const int STAFF_LINE_HORIZONTAL_PADDING = 20;
-    const int STAFF_LINE_VERTICAL_PADDING = 10;
+    const int STAFF_LINE_VERTICAL_PADDING = 11;
     const int STAFF_PADDING_KOEF = 3;
-    const int CHORD_MARGIN = 25;
-    const int TABS_VERTICAL_PADDING = 1;
+    const int CHORD_MARGIN = 20;
     const int STAFF_MEASURES_COUNT = 4;
     
     int currentBeatX;
@@ -43,6 +42,8 @@ private:
     Renderer* renderer;
     Window* window;
     
+    int tabsVerticalPadding;
+    
     void drawAllTabs(const std::vector<std::vector<Beat>>& beats);
     void drawNextStaff();
     void drawNextMeasure(const std::vector<Beat>& beats);
@@ -50,9 +51,9 @@ private:
     void drawChord(Chord chord);
     void drawNote(const Note& note);
     
-    void renderVerticalText(std::string text);
+    int maxTabWidth;
     
-    bool nextStaff;
+    void renderVerticalText(std::string text);
     
     TextRenderer textRenderer;
 };

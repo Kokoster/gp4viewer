@@ -17,7 +17,7 @@ class TextRenderer {
 public:
     TextRenderer(const Renderer& renderer);
     
-    void renderText(const std::string& text, int x, int y, int fontSize, SDL_Color color);
+    int renderText(const std::string& text, int x, int y, int fontSize, SDL_Color color);
     
 private:
     const Renderer& renderer;

@@ -20,33 +20,38 @@ TextRenderer::TextRenderer(const Renderer& _renderer) : renderer(_renderer) {
         TTF_Init();
 }
 
-void TextRenderer::renderText(const std::string& text, int x, int y, int fontSize, SDL_Color color) {
+int TextRenderer::renderText(const std::string& text, int x, int y, int fontSize, SDL_Color color) {
     
     //Open the font
-    TTF_Font* font = TTF_OpenFont("ARIAL.TTF", 200);
+    TTF_Font* font = TTF_OpenFont("ARIAL.TTF", fontSize);
     if (font == nullptr){
         std::cout << TTF_GetError() << std::endl;
-        return;
+        return -1;
     }
     
 //    SDL_Surface* sdlSurface = TTF_RenderText_Blended(font, text.c_str(), color);
     SDL_Color bgColor = {255, 255, 255, 255};
-    SDL_Surface* sdlSurface = TTF_RenderText_Shaded(font, text.c_str(), color, bgColor);
     
-    if (sdlSurface == nullptr){
-        TTF_CloseFont(font);
-        return;
+    SDL_Surface* sdlSurface;
+    for (int i = 0; i < text.size(); ++i) {
+        sdlSurface = TTF_RenderText_Shaded(font, text.c_str(), color, bgColor);
+        
+        if (sdlSurface == nullptr){
+            TTF_CloseFont(font);
+            return -1;
+        }
+        
+        Surface surface(sdlSurface);
+
+        Texture texture(renderer, surface);
+
+        SDL_Rect rect {x, y, sdlSurface->w, sdlSurface->h};
+    //    SDL_Rect rect {x, y, fontSize, fontSize};
+        
+        renderer.copy(texture.getTexture(), rect);
     }
-    
-    Surface surface(sdlSurface);
-
-    Texture texture(renderer, surface);
-    
-    SDL_Rect rect {x, y, (int) text.length() * fontSize, fontSize};
-//    SDL_Rect rect {x, y, fontSize, fontSize};
-
-    
-    renderer.copy(texture.getTexture(), rect);
 
     TTF_CloseFont(font);
+    
+    return (sdlSurface->w - 1);
 }
