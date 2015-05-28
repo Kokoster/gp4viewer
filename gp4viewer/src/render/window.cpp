@@ -13,8 +13,8 @@ Window::Window() {
     window = SDL_CreateWindow("SDL 2 window",             // window title
                               SDL_WINDOWPOS_CENTERED,     // x position, centered
                               SDL_WINDOWPOS_CENTERED,     // y position, centered
-                              1000,                        // width, in pixels
-                              650,                        // height, in pixels
+                              1000,                       // width, in pixels
+                              750,                        // height, in pixels
                               SDL_WINDOW_OPENGL           // flags
                               );
 

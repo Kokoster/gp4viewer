@@ -3,7 +3,7 @@
 #include <fstream>
 #include <vector>
 
-struct Point {
+struct MusePoint {
     int timePosition;
     int verticalPosition;
     char vibrato;
@@ -13,7 +13,7 @@ struct Bend {
     char type;
     int value;
     int pointsCount;
-    std::vector<Point> points;
+    std::vector<MusePoint> points;
 };
 
 template<typename T>

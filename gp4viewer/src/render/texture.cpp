@@ -10,6 +10,7 @@
 
 Texture::Texture(const Renderer& renderer, const Surface& surface) {
     texture = SDL_CreateTextureFromSurface(renderer.getRenderer(), surface.getSurface());
+    SDL_QueryTexture(texture, NULL, NULL, &w, &h);
 }
 
 Texture::~Texture() {
@@ -18,4 +19,12 @@ Texture::~Texture() {
 
 SDL_Texture* Texture::getTexture() const {
     return texture;
+}
+
+int Texture::getWidth() {
+    return w;
+}
+
+int Texture::getHeight() {
+    return h;
 }

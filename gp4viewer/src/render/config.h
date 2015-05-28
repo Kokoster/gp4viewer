@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef gp4viewer_congig_h
-#define gp4viewer_congig_h
+# pragma once
 
+#define STAFF_LINE_HORIZONTAL_PADDING 20
+#define STAFF_LINE_VERTICAL_PADDING   11
+#define STAFF_PADDING_KOEF 3
+#define CHORD_MARGIN 20
+#define FONT_SIZE 11
 
-#endif

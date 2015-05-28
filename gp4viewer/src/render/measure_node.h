@@ -6,9 +6,15 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef __gp4viewer__measure_node__
-#define __gp4viewer__measure_node__
+#pragma once
 
-#include <stdio.h>
+#include "node.h"
 
-#endif /* defined(__gp4viewer__measure_node__) */
+#include "renderer.h"
+#include "point.h"
+
+class MeasureNode : public Node {
+public:
+    virtual void renderSelf(Renderer& renderer);
+    virtual Rect getPadding();
+};

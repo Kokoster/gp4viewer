@@ -6,9 +6,30 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef __gp4viewer__rootNode__
-#define __gp4viewer__rootNode__
+#pragma once
 
-#include <stdio.h>
+#include "node.h"
 
-#endif /* defined(__gp4viewer__rootNode__) */
+#include "window.h"
+#include "renderer.h"
+
+#include "gp4data.h"
+
+class RootNode : public Node {
+public:
+    RootNode(Renderer* renderer, Window* window);
+    
+    void calculateEverything(const GP4Data& gp4Data);
+    
+private:
+    Window* window;
+    Renderer* renderer;
+    
+    bool hasMeasure;
+    int currentIndex;
+    
+    void setMeasureNode(Node* rowStaff, std::unique_ptr<Node>& measureNode, const GP4Data& gp4Data);
+//    void setTabNode(std::unique_ptr<Node>& staffNode);
+    void setTabNode(Node* staffNode);
+    void setNoteNode(std::unique_ptr<Node>& beatNode, Beat beat);
+};

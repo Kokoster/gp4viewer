@@ -39,6 +39,13 @@
 		6A7264791AD1499500B4E15B /* sdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264741AD1499500B4E15B /* sdl.cpp */; };
 		6A72647A1AD1499500B4E15B /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264761AD1499500B4E15B /* window.cpp */; };
 		6A7264831AD152C700B4E15B /* gp4renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7264811AD152C700B4E15B /* gp4renderer.cpp */; };
+		6A8897831B11CD570028A34C /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A8897811B11CD570028A34C /* node.cpp */; };
+		6A8897861B11D15F0028A34C /* node_test_case.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A8897841B11D15F0028A34C /* node_test_case.cpp */; };
+		6A9A1E911B11F35B009E2012 /* text_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A1E8F1B11F35B009E2012 /* text_node.cpp */; };
+		6A9A1E941B122C88009E2012 /* staff_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A1E921B122C88009E2012 /* staff_node.cpp */; };
+		6A9A1E9B1B1248C9009E2012 /* root_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A1E991B1248C9009E2012 /* root_node.cpp */; };
+		6A9A1E9E1B125F9D009E2012 /* measure_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A1E9C1B125F9D009E2012 /* measure_node.cpp */; };
+		6A9A1EA11B12FF41009E2012 /* beat_node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A1E9F1B12FF41009E2012 /* beat_node.cpp */; };
 		6ABB72A41AE413A1002033CD /* ARIAL.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 6ABB72A31AE413A1002033CD /* ARIAL.TTF */; };
 		6AFB5B7A1AE27AE000B313D8 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AFB5B791AE27AE000B313D8 /* SDL2_ttf.framework */; };
 		6AFB5B7B1AE27AE000B313D8 /* SDL2_ttf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6AFB5B791AE27AE000B313D8 /* SDL2_ttf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -110,6 +117,21 @@
 		6A7264771AD1499500B4E15B /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
 		6A7264811AD152C700B4E15B /* gp4renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gp4renderer.cpp; sourceTree = "<group>"; };
 		6A7264821AD152C700B4E15B /* gp4renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gp4renderer.h; sourceTree = "<group>"; };
+		6A8897811B11CD570028A34C /* node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
+		6A8897821B11CD570028A34C /* node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = node.h; sourceTree = "<group>"; };
+		6A8897841B11D15F0028A34C /* node_test_case.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = node_test_case.cpp; sourceTree = "<group>"; };
+		6A8897851B11D15F0028A34C /* node_test_case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = node_test_case.h; sourceTree = "<group>"; };
+		6A9A1E8F1B11F35B009E2012 /* text_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = text_node.cpp; sourceTree = "<group>"; };
+		6A9A1E901B11F35B009E2012 /* text_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text_node.h; sourceTree = "<group>"; };
+		6A9A1E921B122C88009E2012 /* staff_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = staff_node.cpp; path = ../staff_node.cpp; sourceTree = "<group>"; };
+		6A9A1E931B122C88009E2012 /* staff_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = staff_node.h; path = ../staff_node.h; sourceTree = "<group>"; };
+		6A9A1E951B122DA9009E2012 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		6A9A1E991B1248C9009E2012 /* root_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = root_node.cpp; sourceTree = "<group>"; };
+		6A9A1E9A1B1248C9009E2012 /* root_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = root_node.h; sourceTree = "<group>"; };
+		6A9A1E9C1B125F9D009E2012 /* measure_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = measure_node.cpp; sourceTree = "<group>"; };
+		6A9A1E9D1B125F9D009E2012 /* measure_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = measure_node.h; sourceTree = "<group>"; };
+		6A9A1E9F1B12FF41009E2012 /* beat_node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = beat_node.cpp; sourceTree = "<group>"; };
+		6A9A1EA01B12FF41009E2012 /* beat_node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = beat_node.h; sourceTree = "<group>"; };
 		6ABB72A31AE413A1002033CD /* ARIAL.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = ARIAL.TTF; path = res/ARIAL.TTF; sourceTree = "<group>"; };
 		6AFB5B791AE27AE000B313D8 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = gp4viewer/lib/SDL2_ttf.framework; sourceTree = "<group>"; };
 		6AFB5B7C1AE28F0100B313D8 /* surface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = surface.cpp; sourceTree = "<group>"; };
@@ -256,6 +278,21 @@
 				6AFB5B821AE2909800B313D8 /* text_renderer.cpp */,
 				6A7264821AD152C700B4E15B /* gp4renderer.h */,
 				6A7264811AD152C700B4E15B /* gp4renderer.cpp */,
+				6A8897821B11CD570028A34C /* node.h */,
+				6A8897811B11CD570028A34C /* node.cpp */,
+				6A8897851B11D15F0028A34C /* node_test_case.h */,
+				6A8897841B11D15F0028A34C /* node_test_case.cpp */,
+				6A9A1E931B122C88009E2012 /* staff_node.h */,
+				6A9A1E921B122C88009E2012 /* staff_node.cpp */,
+				6A9A1E901B11F35B009E2012 /* text_node.h */,
+				6A9A1E8F1B11F35B009E2012 /* text_node.cpp */,
+				6A9A1E951B122DA9009E2012 /* config.h */,
+				6A9A1E9A1B1248C9009E2012 /* root_node.h */,
+				6A9A1E991B1248C9009E2012 /* root_node.cpp */,
+				6A9A1E9D1B125F9D009E2012 /* measure_node.h */,
+				6A9A1E9C1B125F9D009E2012 /* measure_node.cpp */,
+				6A9A1EA01B12FF41009E2012 /* beat_node.h */,
+				6A9A1E9F1B12FF41009E2012 /* beat_node.cpp */,
 			);
 			path = render;
 			sourceTree = "<group>";
@@ -361,16 +398,23 @@
 			files = (
 				6A72642F1AD1415500B4E15B /* common.cpp in Sources */,
 				6A7264311AD1415500B4E15B /* gp4reader.cpp in Sources */,
+				6A9A1E9E1B125F9D009E2012 /* measure_node.cpp in Sources */,
 				6A7264831AD152C700B4E15B /* gp4renderer.cpp in Sources */,
+				6A8897861B11D15F0028A34C /* node_test_case.cpp in Sources */,
 				6A7264341AD1415500B4E15B /* main.cpp in Sources */,
 				6AFB5B8D1AE2B06500B313D8 /* size.cpp in Sources */,
+				6A9A1E911B11F35B009E2012 /* text_node.cpp in Sources */,
 				6AFB5B801AE28F0100B313D8 /* surface.cpp in Sources */,
 				6AFB5B841AE2909800B313D8 /* text_renderer.cpp in Sources */,
 				6A7264791AD1499500B4E15B /* sdl.cpp in Sources */,
 				6A72647A1AD1499500B4E15B /* window.cpp in Sources */,
+				6A9A1E9B1B1248C9009E2012 /* root_node.cpp in Sources */,
+				6A9A1EA11B12FF41009E2012 /* beat_node.cpp in Sources */,
 				6A7263F91AD13A2600B4E15B /* ViewController.m in Sources */,
+				6A9A1E941B122C88009E2012 /* staff_node.cpp in Sources */,
 				6AFB5B8A1AE2ADA800B313D8 /* rect.cpp in Sources */,
 				6A7264781AD1499500B4E15B /* renderer.cpp in Sources */,
+				6A8897831B11CD570028A34C /* node.cpp in Sources */,
 				6AFB5B811AE28F0100B313D8 /* texture.cpp in Sources */,
 				6A72642D1AD1415500B4E15B /* beat.cpp in Sources */,
 				6AFB5B891AE2ADA800B313D8 /* point.cpp in Sources */,

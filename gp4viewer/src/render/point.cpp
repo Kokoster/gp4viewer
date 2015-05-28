@@ -18,3 +18,29 @@ Point::Point(int x, int y) {
     this->x = x;
     this->y = y;
 }
+
+Point& Point::operator=(const Point& point) {
+    x = point.x;
+    y = point.y;
+    
+    return *this;
+}
+
+Point Point::operator+(const Point& point) {
+    Point temp;
+    
+    temp.x = x + point.x;
+    temp.y = y + point.y;
+    
+    return temp;
+}
+
+Point Point::operator-(const Point& point) {
+    Point temp;
+    
+    temp.x = x - point.x;
+    temp.y = y - point.y;
+    
+    return temp;
+}
+

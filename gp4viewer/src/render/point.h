@@ -13,13 +13,17 @@ public:
     Point();
     Point(int x, int y);
     
+    Point& operator=(const Point& point);
+    
+    Point operator+(const Point& point);
+    Point operator-(const Point& point);
+    
     void setX(int x) { this->x = x; };
     int getX() const { return x; };
     
     void setY(int y) { this->y = y; };
     int getY() const { return y; };
     
-private:
     int x, y;
 };
 

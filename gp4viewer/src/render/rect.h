@@ -25,7 +25,6 @@ public:
     
     bool intersects(const Rect& other) const;
     
-private:
     Point position;
     Size size;
 };

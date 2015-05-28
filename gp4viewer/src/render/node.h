@@ -6,9 +6,40 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef __gp4viewer__node__
-#define __gp4viewer__node__
+#pragma once
 
-#include <stdio.h>
+#include <vector>
 
-#endif /* defined(__gp4viewer__node__) */
+#include "renderer.h"
+
+#include "point.h"
+#include "rect.h"
+
+class Node {
+public:
+    Node();
+//    virtual ~Node();
+    
+    Node(const Node& node) = delete;
+    Node& operator=(const Node& node) = delete;
+    
+    virtual void render(Renderer& renderer);
+    virtual void renderSelf(Renderer& renderer);
+    virtual void addChild(std::unique_ptr<Node>& child);
+    virtual void removeChild(Node* child);
+    virtual const std::vector<std::unique_ptr<Node>>& getChildren();
+    
+    virtual Point getGlobalPosition();
+    virtual Node* getParent();
+    
+    virtual void setPosition(const Point& position);
+    virtual Point getPosition();
+    
+    virtual Rect getPadding();
+    
+protected:
+    Node* parent;
+    std::vector<std::unique_ptr<Node>> children;
+    
+    Point position;
+};

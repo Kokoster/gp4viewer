@@ -6,9 +6,8 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef __gp4viewer__node_test_case__
-#define __gp4viewer__node_test_case__
+#pragma once
 
-#include <stdio.h>
+void runTests();
 
-#endif /* defined(__gp4viewer__node_test_case__) */
+

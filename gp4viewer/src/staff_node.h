@@ -6,9 +6,20 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef __gp4viewer__staff_node__
-#define __gp4viewer__staff_node__
+#pragma once
 
-#include <stdio.h>
+#include "node.h"
+#include "renderer.h"
+#include "window.h"
 
-#endif /* defined(__gp4viewer__staff_node__) */
+#include "config.h"
+
+class StaffNode : public Node {
+public:
+    StaffNode(Window& window, int verticalPadding);
+    virtual void renderSelf(Renderer& renderer);
+    virtual Rect getPadding();
+    
+private:
+    int windowWidth;
+};

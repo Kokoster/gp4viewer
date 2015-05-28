@@ -13,6 +13,8 @@
 #include <SDL2_ttf/SDL_ttf.h>
 #include <stdio.h>
 
+#include "rect.h"
+
 GP4Renderer::GP4Renderer(Renderer* renderer, Window* window): textRenderer(*renderer) {
     this->renderer = renderer;
     this->window = window;
@@ -21,29 +23,65 @@ GP4Renderer::GP4Renderer(Renderer* renderer, Window* window): textRenderer(*rend
     currentBeatX = CHORD_MARGIN;
 //    currentNoteY = (STAFF_PADDING_KOEF - 1) * STAFF_LINE_VERTICAL_PADDING;
     
-    tabsVerticalPadding = STAFF_LINE_VERTICAL_PADDING / 2;
-    
     maxTabWidth = 0;
+    yInit = 0;
 }
 
-void GP4Renderer::renderGP4Data(const GP4Data& gp4Data) {
+void GP4Renderer::renderGP4Data(const GP4Data& gp4Data, int yDelta) {
     renderer->setColor(255, 255, 255, 255);
     renderer->clear();
     
-    drawNextStaff();
-    for (int i = 0; i < 43; i++) {
-        drawAllTabs(gp4Data.beats[i]);
+    yInit += yDelta;
+    
+    int maxSize = STAFF_LINE_VERTICAL_PADDING * (gp4Data.beats.size()  + STAFF_PADDING_KOEF);
+    
+    if (yInit > 0) {
+        yInit = 0;
     }
+//    else if (yInit < -1 * maxSize + window->getHeight()) {
+//        yInit = -1 * maxSize;
+//    }
+    
+    currentLineY = yInit;
+    
+    std::clock_t start;
+    
+    std::cout << "new swipe" << std::endl;
+    
+    start = std::clock();
+    drawNextStaff();
+    for (int i = 0; i < gp4Data.beats.size(); ++i) {
+        std::cout << "current line y: " << currentLineY << std::endl;
+        
+        if (currentLineY + STAFF_LINE_VERTICAL_PADDING * (STAFF_PADDING_KOEF + 5) < 0)
+        {
+            currentLineY += STAFF_LINE_VERTICAL_PADDING * (STAFF_PADDING_KOEF + 5);
+            continue;
+        }
+        
+        drawAllTabs(gp4Data.beats[i]);
+        
+        
+        if (currentLineY - STAFF_LINE_VERTICAL_PADDING / 2 > window->getHeight()) {
+            std::cout << "currentLineY: " << currentLineY << " window height: " << window->getHeight() << std::endl;
+            break;
+        }
+    }
+    
+    std::cout << "Time rendering: " << (std::clock() - start) / (double)(CLOCKS_PER_SEC / 1000) << " ms" << std::endl;
 }
 
 void GP4Renderer::drawAllTabs(const std::vector<std::vector<Beat>>& beats) {
+    // TODO: связать условие выхода с measures
+    
     if (currentBeatX + beats[2].size() * CHORD_MARGIN + 15 * beats[2].size() + 5 > window->getWidth() - STAFF_LINE_HORIZONTAL_PADDING) {
+            
         drawNextStaff();
     }
     
-//    for (int i = 0; i < beats.size(); ++i) {
-//        drawNextMeasure(beats[i]);
-//    }
+    if (currentLineY - STAFF_LINE_VERTICAL_PADDING / 2 > window->getHeight()) {
+        return;
+    }
     
     drawNextMeasure(beats[2]);
 }
@@ -56,21 +94,24 @@ void GP4Renderer::drawNextStaff() {
     int x1 = STAFF_LINE_HORIZONTAL_PADDING ;
     int x2 = window->getWidth() - STAFF_LINE_HORIZONTAL_PADDING;
     currentLineY += STAFF_PADDING_KOEF * STAFF_LINE_VERTICAL_PADDING;
+    if (currentLineY - STAFF_LINE_VERTICAL_PADDING / 2 > window->getHeight()) {
+        return;
+    }
     
-    firstLine = currentLineY - STAFF_LINE_VERTICAL_PADDING;
+    firstLine = currentLineY;
     
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < 5; ++i) {
         renderer->drawLine(x1, currentLineY, x2, currentLineY);
-    
         currentLineY += STAFF_LINE_VERTICAL_PADDING;
     }
+    renderer->drawLine(x1, currentLineY, x2, currentLineY);
     
     renderVerticalText("TAB");
     currentBeatX += CHORD_MARGIN;
 }
 
 void GP4Renderer::renderVerticalText(std::string text) {
-    int tempY = firstLine + 2 * STAFF_LINE_VERTICAL_PADDING;
+    int tempY = firstLine + STAFF_LINE_VERTICAL_PADDING;
     SDL_Color color {0, 0, 0, 255};
     
     for (int i = 0; i < text.size(); ++i) {
@@ -82,16 +123,18 @@ void GP4Renderer::renderVerticalText(std::string text) {
 }
 
 void GP4Renderer::drawNextMeasure(const std::vector<Beat>& beats) {
+//    std::cout << "drawing measure" << std::endl;
+//    std::cout << "current line: " << currentLine << std::endl;
+    
+    
     for (int i = 0; i < beats.size(); ++i) {
         drawNextBeat(beats[i]);
     }
     
     currentBeatX += CHORD_MARGIN;
     
-    int lastLine = firstLine + 6 * STAFF_LINE_VERTICAL_PADDING;
-    renderer->drawLine(currentBeatX, firstLine + STAFF_LINE_VERTICAL_PADDING, currentBeatX, lastLine);
-    
-    maxTabWidth = 0;
+    int lastLine = firstLine + 5 * STAFF_LINE_VERTICAL_PADDING;
+    renderer->drawLine(currentBeatX, firstLine, currentBeatX, lastLine);
 }
 
 void GP4Renderer::drawNextBeat(const Beat& beat) {
@@ -99,8 +142,23 @@ void GP4Renderer::drawNextBeat(const Beat& beat) {
     
     currentBeatX += maxTabWidth + CHORD_MARGIN;
     maxTabWidth = 0;
+    
+//    if (beat.header.containsEffects) {
+//        int lastLine = firstLine + 5 * STAFF_LINE_VERTICAL_PADDING;
+//        
+//        if (beat.effects.upStroke) {
+//            renderer->drawLine(currentBeatX, firstLine + STAFF_LINE_VERTICAL_PADDING, currentBeatX, lastLine);
+//        }
+//        
+//        if (beat.effects.downStroke) {
+//            renderer->drawLine(currentBeatX, firstLine + STAFF_LINE_VERTICAL_PADDING, currentBeatX, lastLine);
+//        }
+//        
+//        currentBeatX += CHORD_MARGIN / 2;
+//    }
 
-    currentNoteY = firstLine + tabsVerticalPadding;
+    int tabsVerticalPadding = STAFF_LINE_VERTICAL_PADDING / 2;
+    currentNoteY = firstLine - tabsVerticalPadding;
     
     if (beat.chord.firstStr) {
         drawNote(beat.notes[5]);

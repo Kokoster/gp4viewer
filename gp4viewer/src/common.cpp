@@ -35,8 +35,8 @@ std::string readDataBlock(std::ifstream& inputStream, int stringsCount) {
     return block;
 }
 
-Point readPoint(std::ifstream& inputStream) {
-    Point point = {
+MusePoint readPoint(std::ifstream& inputStream) {
+    MusePoint point = {
         .timePosition = 0,
         .verticalPosition = 0,
         .vibrato = 0
@@ -61,7 +61,7 @@ Bend readBend(std::ifstream& inputStream) {
     bend.pointsCount = readData<int>(inputStream);
 
     for (int i = 0; i < bend.pointsCount; ++i) {
-        Point point = readPoint(inputStream);
+        MusePoint point = readPoint(inputStream);
         bend.points.push_back(point);
     }
 

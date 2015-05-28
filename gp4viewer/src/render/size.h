@@ -19,7 +19,6 @@ public:
     void setHeight(int h) { this->h = h; };
     int getHeight() const { return h; };
     
-private:
     int w, h;
 };
 

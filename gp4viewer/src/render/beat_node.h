@@ -6,9 +6,13 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef __gp4viewer__beat_node__
-#define __gp4viewer__beat_node__
+#pragma once
 
-#include <stdio.h>
+#include "node.h"
 
-#endif /* defined(__gp4viewer__beat_node__) */
+class BeatNode : public Node {
+public:
+//    virtual void renderSelf();
+    
+    virtual Rect getPadding();
+};

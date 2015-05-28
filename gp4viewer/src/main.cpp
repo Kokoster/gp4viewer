@@ -11,6 +11,12 @@
 #include "gp4data.h"
 #include "gp4reader.h"
 
+#include "point.h"
+#include "root_node.h"
+
+#include "node_test_case.h"
+
+
 int main(int argc, char const *argv[])
 {
     SDL sdl;
@@ -33,13 +39,22 @@ int main(int argc, char const *argv[])
     if (inputStream.fail()) {
         std::cout << "fail" << std::endl;
     }
+    
+//    runTests();
+//    exit(0);
 
     GP4Data gp4Data = readGP4Data(inputStream);
+    
+    RootNode rootNode(&renderer, &window);
+    rootNode.calculateEverything(gp4Data);
 
-    gp4Renderer.renderGP4Data(gp4Data);
-    renderer.present();
+//    gp4Renderer.renderGP4Data(gp4Data, 0);
+//    renderer.present();
     
     while (1) {
+        renderer.setColor(255, 255, 255, 255);
+        renderer.clear();
+        
         SDL_Event e;
         bool exit = false;
         
@@ -50,8 +65,44 @@ int main(int argc, char const *argv[])
                 exit = true;
                 break;
             }
+            
+//            if (e.type == SDL_MOUSEBUTTONDOWN) {
+//                yFirst = e.button.y;
+//                down = true;
+//            } else if (e.type == SDL_MOUSEMOTION && down) {
+//                currentY = e.motion.y;
+//                
+//                int yDelta = currentY - yFirst;
+//
+//                gp4Renderer.renderGP4Data(gp4Data, yDelta);
+//                renderer.present();
+//            }
+//            else if (e.type == SDL_MOUSEBUTTONUP) {
+//                down = false;
+//            }
+//
+            if (e.type == SDL_MOUSEWHEEL) {
+//                currentY = e.wheel.y;
+                Point position = rootNode.getPosition();
+                position.y += e.wheel.y;
+                if (position.y > 0) {
+                    position.y = 0;
+                }
+                else if (position.y < rootNode.getChildren().size()) {
+                    position.y = rootNode.getPadding().size.h;
+                }
+                    
+                rootNode.setPosition(position);
+                
+//                gp4Renderer.renderGP4Data(gp4Data, currentY);
+//                renderer.present();
+            }
+            
         }
-        
+
+        rootNode.render(renderer);
+        renderer.present();
+
         if (exit) break;
     };
 

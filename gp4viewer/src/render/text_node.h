@@ -6,9 +6,22 @@
 //  Copyright (c) 2015 Olga Didenko. All rights reserved.
 //
 
-#ifndef __gp4viewer__text_node__
-#define __gp4viewer__text_node__
+#pragma once
 
-#include <stdio.h>
+#include <string>
 
-#endif /* defined(__gp4viewer__text_node__) */
+#include "texture.h"
+
+#include "node.h"
+
+class TextNode : public Node {
+public:
+    TextNode(const Renderer& renderer, const std::string& text, int fontSize);
+    
+    virtual void renderSelf(Renderer& renderer);
+    
+    virtual Rect getPadding();
+    
+private:
+    std::unique_ptr<Texture> texture;
+};

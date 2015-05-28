@@ -22,6 +22,13 @@ public:
     void operator= (const Texture& texture) = delete;
     
     SDL_Texture* getTexture() const;
+    
+    int getWidth();
+    int getHeight();
+    
 private:
     SDL_Texture* texture;
+    
+    int w;
+    int h;
 };

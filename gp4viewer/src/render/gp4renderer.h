@@ -24,14 +24,15 @@ public:
     GP4Renderer(const GP4Renderer& renderer) = delete;
     const GP4Renderer& operator=(const GP4Renderer& renderer) = delete;
     
-    void renderGP4Data(const GP4Data& gp4Data);
+    void renderGP4Data(const GP4Data& gp4Data, int yDelta);
     
 private:
     const int STAFF_LINE_HORIZONTAL_PADDING = 20;
     const int STAFF_LINE_VERTICAL_PADDING = 11;
     const int STAFF_PADDING_KOEF = 3;
     const int CHORD_MARGIN = 20;
-    const int STAFF_MEASURES_COUNT = 4;
+    
+    int yInit;
     
     int currentBeatX;
     int currentLineY;
@@ -41,9 +42,7 @@ private:
     
     Renderer* renderer;
     Window* window;
-    
-    int tabsVerticalPadding;
-    
+
     void drawAllTabs(const std::vector<std::vector<Beat>>& beats);
     void drawNextStaff();
     void drawNextMeasure(const std::vector<Beat>& beats);
