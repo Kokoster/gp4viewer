@@ -16,11 +16,13 @@ void MeasureNode::renderSelf(Renderer& renderer) {
     
     int x = getGlobalPosition().x + getPadding().size.w;
     
-    renderer.drawLine(x - 5, getGlobalPosition().y, x - 5, getGlobalPosition().y + 5 * STAFF_LINE_VERTICAL_PADDING);
+   
+    
+    renderer.drawLine(x, getGlobalPosition().y, x, getGlobalPosition().y + parent->getHeight());
 }
 
 Rect MeasureNode::getPadding() {
-    Rect rect(position.x, position.y, CHORD_MARGIN, 5 * STAFF_LINE_VERTICAL_PADDING);
+    Rect rect(position.x, position.y, CHORD_MARGIN, parent->getHeight());
 
     for (auto& child : children) {
         if (child->getPadding().size.w > 0) {

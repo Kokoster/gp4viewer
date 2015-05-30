@@ -58,12 +58,12 @@ void TextNode::renderSelf(Renderer& renderer) {
 
 Rect TextNode::getPadding() {
     if (texture == NULL) {
-        Rect rect(position.x, position.y, 0, 5 * STAFF_LINE_VERTICAL_PADDING);
+        Rect rect(position.x, position.y, 0, 5 * TAB_STAFF_LINE_VERTICAL_PADDING);
         
         return rect;
     }
     
-    Rect rect(position.x, position.y, texture->getWidth(), 5 * STAFF_LINE_VERTICAL_PADDING);
+    Rect rect(position.x, position.y, texture->getWidth(), 5 * TAB_STAFF_LINE_VERTICAL_PADDING);
     
     return rect;
 }

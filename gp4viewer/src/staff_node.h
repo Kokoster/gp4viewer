@@ -14,11 +14,35 @@
 
 #include "config.h"
 
-class StaffNode : public Node {
+//class StaffNode : public Node {
+//public:
+//    StaffNode(Window& window, int verticalPadding);
+//    virtual void renderSelf(Renderer& renderer);
+//    virtual Rect getPadding();
+//    
+//private:
+//    int windowWidth;
+//};
+
+class TabStaffNode : public Node {
 public:
-    StaffNode(Window& window, int verticalPadding);
+    TabStaffNode(Window& window, int verticalPadding);
     virtual void renderSelf(Renderer& renderer);
     virtual Rect getPadding();
+    virtual Rect getLinePadding();
+    virtual int getHeight();
+    
+private:
+    int windowWidth;
+};
+
+class NoteStaffNode : public Node {
+public:
+    NoteStaffNode(Window& window, int verticalPadding);
+    virtual void renderSelf(Renderer& renderer);
+    virtual Rect getPadding();
+    virtual Rect getLinePadding();
+    virtual int getHeight();
     
 private:
     int windowWidth;

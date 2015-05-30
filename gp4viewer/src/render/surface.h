@@ -15,6 +15,7 @@
 class Surface {
 public:
     Surface(SDL_Surface* surface);
+    Surface(const std::string& string);
     ~Surface();
     
     Surface(const Surface& surface) = delete;
@@ -24,4 +25,5 @@ public:
 private:
     SDL_Surface* surface;
 };
+
 

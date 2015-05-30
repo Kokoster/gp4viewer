@@ -62,11 +62,32 @@ void Node::renderSelf(Renderer& renderer) {
 }
 
 Rect Node::getPadding() {
-    Rect rect(position.x, position.y, 0, 5 * STAFF_LINE_VERTICAL_PADDING);
+    Rect rect(position.x, position.y, 0, 50);
     
     for (auto& child : children) {
         rect.size.w += child->getPadding().size.w;
+        rect.size.h += child->getPadding().size.h;
     }
     
     return rect;
+}
+
+Rect Node::getLinePadding() {
+    if (parent != NULL) {
+        return parent->getLinePadding();
+    }
+    else {
+        Rect rect(position.x, position.y, 0, 0);
+        return rect;
+    }
+}
+
+int Node::getHeight() {
+    int height = 0;
+    
+    if (children.size()) {
+        height = children[0]->getHeight();
+    }
+    
+    return height;
 }

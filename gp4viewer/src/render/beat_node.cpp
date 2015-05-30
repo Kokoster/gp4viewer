@@ -11,7 +11,7 @@
 #include "config.h"
 
 Rect BeatNode::getPadding() {
-    Rect maxRect(position.x, position.y, 0, STAFF_LINE_VERTICAL_PADDING);
+    Rect maxRect(position.x, position.y, 0, parent->getLinePadding().size.h);
     
     for (auto& child : children) {
         if (child->getPadding().size.w > maxRect.size.w) {

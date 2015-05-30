@@ -12,6 +12,7 @@
 #include "measure_node.h"
 #include "beat_node.h"
 #include "text_node.h"
+#include "note_node.h"
 
 #include <iostream>
 
@@ -27,47 +28,62 @@ RootNode::RootNode(Renderer* renderer, Window* window) {
     hasMeasure = true;
 }
 
-void RootNode::calculateEverything(const GP4Data& gp4Data) {
-    int verticalPadding = STAFF_LINE_VERTICAL_PADDING * STAFF_PADDING_KOEF;
+void RootNode::createStaff(Node** rowNoteStaffPtr, Node** rowTabStaffPtr, int* verticalPadding) {
+    std::unique_ptr<Node> staffNode(new Node());
     
-    Node* rowStaffPtr;
-    std::unique_ptr<Node> staffNode(new StaffNode(*window, verticalPadding));
-    rowStaffPtr = staffNode.get();
-    setTabNode(rowStaffPtr);
+    std::unique_ptr<Node> noteStaffNode(new NoteStaffNode(*window, *verticalPadding));
+    *rowNoteStaffPtr = noteStaffNode.get();
+    setClueNode(*rowNoteStaffPtr);
+    staffNode->addChild(noteStaffNode);
+    
+    *verticalPadding += NOTE_STAFF_LINE_VERTICAL_PADDING * 4 + GENERAL_STAFF_PADDING;
+    
+    std::unique_ptr<Node> tabStaffNode(new TabStaffNode(*window, *verticalPadding));
+    *rowTabStaffPtr = tabStaffNode.get();
+    setTabNode(*rowTabStaffPtr);
+    staffNode->addChild(tabStaffNode);
     addChild(staffNode);
+
+}
+
+void RootNode::calculateEverything(const GP4Data& gp4Data) {
+    int verticalPadding = 50;
     
-    int currentX = rowStaffPtr->getPadding().size.w;
-//    int currentX = CHORD_MARGIN / 2; // "TAB" position
+    Node* rowNoteStaffPtr;
+    Node* rowTabStaffPtr;
+    
+    createStaff(&rowNoteStaffPtr, &rowTabStaffPtr, &verticalPadding);
+    
+    int currentX = rowTabStaffPtr->getPadding().size.w;
     
     while (currentIndex < gp4Data.beats.size()) {
         std::unique_ptr<Node> measureNode(new MeasureNode());
         Point position(currentX, 0);
         measureNode->setPosition(position);
         
-        setMeasureNode(rowStaffPtr, measureNode, gp4Data);
+        Node* rowMeasurePtr = measureNode.get();
+        rowTabStaffPtr->addChild(measureNode);
+        
+        setMeasureNode(rowTabStaffPtr, rowMeasurePtr, gp4Data);
         currentIndex++;
         
-        if (measureNode->getPosition().x + measureNode->getPadding().size.w > window->getWidth() - STAFF_LINE_HORIZONTAL_PADDING) {
+        if (rowMeasurePtr->getPosition().x + rowMeasurePtr->getPadding().size.w > window->getWidth() - STAFF_LINE_HORIZONTAL_PADDING) {
 
-            verticalPadding += STAFF_LINE_VERTICAL_PADDING * (STAFF_PADDING_KOEF + 5);
+            verticalPadding += TAB_STAFF_LINE_VERTICAL_PADDING * 5 + STAFF_PADDING_KOEF * GENERAL_STAFF_PADDING;
             
-            std::unique_ptr<Node> staffNode(new StaffNode(*window, verticalPadding));
-            rowStaffPtr = staffNode.get();
-            addChild(staffNode); // add next staff
+            createStaff(&rowNoteStaffPtr, &rowTabStaffPtr, &verticalPadding);
             
-            setTabNode(rowStaffPtr);
-            currentX = rowStaffPtr->getPadding().size.w;
+            currentX = rowTabStaffPtr->getPadding().size.w;
             
             position.x = currentX;
-            measureNode->setPosition(position);
+            rowMeasurePtr->setPosition(position);
         }
         
-        currentX += measureNode->getPadding().size.w;
-        rowStaffPtr->addChild(measureNode);
+        currentX += rowMeasurePtr->getPadding().size.w;
     }
 }
 
-void RootNode::setMeasureNode(Node* rowStaff, std::unique_ptr<Node>& measureNode, const GP4Data& gp4Data) {
+void RootNode::setMeasureNode(Node* rowStaff, Node* measureNode, const GP4Data& gp4Data) {
     const std::vector<Beat> beats = gp4Data.beats[currentIndex][2];
     
 //    int currentX = rowStaff->getPadding().size.w + CHORD_MARGIN;
@@ -79,9 +95,10 @@ void RootNode::setMeasureNode(Node* rowStaff, std::unique_ptr<Node>& measureNode
         beatNode->setPosition(position);
         
         setNoteNode(beatNode, beat);
-        currentX += beatNode->getPadding().size.w;
+        Node* rowBeatPtr = beatNode.get();
         
         measureNode->addChild(beatNode);
+        currentX += rowBeatPtr->getPadding().size.w;
     }
 }
 
@@ -114,47 +131,47 @@ void RootNode::setNoteNode(std::unique_ptr<Node>& beatNode, Beat beat) {
     
     if (beat.chord.firstStr) {
         std::unique_ptr<Node> noteNode(new TextNode(*renderer, getString(beat.notes[5]), FONT_SIZE));
-        Point position(0, -1 * STAFF_LINE_VERTICAL_PADDING / 2);
+        Point position(0, -1 * TAB_STAFF_LINE_VERTICAL_PADDING / 2);
         noteNode->setPosition(position);
         beatNode->addChild(noteNode);
     }
     
-    currentNoteY += STAFF_LINE_VERTICAL_PADDING;
+    currentNoteY += TAB_STAFF_LINE_VERTICAL_PADDING;
     if (beat.chord.secondStr) {
         std::unique_ptr<Node> noteNode(new TextNode(*renderer, getString(beat.notes[4]), FONT_SIZE));
-        Point position(0, STAFF_LINE_VERTICAL_PADDING / 2);
+        Point position(0, TAB_STAFF_LINE_VERTICAL_PADDING / 2);
         noteNode->setPosition(position);
         beatNode->addChild(noteNode);
     }
     
-    currentNoteY += STAFF_LINE_VERTICAL_PADDING;
+    currentNoteY += TAB_STAFF_LINE_VERTICAL_PADDING;
     if (beat.chord.thirdStr) {
         std::unique_ptr<Node> noteNode(new TextNode(*renderer, getString(beat.notes[3]), FONT_SIZE));
-        Point position(0, STAFF_LINE_VERTICAL_PADDING * 3 / 2);
+        Point position(0, TAB_STAFF_LINE_VERTICAL_PADDING * 3 / 2);
         noteNode->setPosition(position);
         beatNode->addChild(noteNode);
     }
     
-    currentNoteY += STAFF_LINE_VERTICAL_PADDING;
+    currentNoteY += TAB_STAFF_LINE_VERTICAL_PADDING;
     if (beat.chord.fourthStr) {
         std::unique_ptr<Node> noteNode(new TextNode(*renderer, getString(beat.notes[2]), FONT_SIZE));
-        Point position(0, STAFF_LINE_VERTICAL_PADDING * 5 / 2);
+        Point position(0, TAB_STAFF_LINE_VERTICAL_PADDING * 5 / 2);
         noteNode->setPosition(position);
         beatNode->addChild(noteNode);
     }
     
-    currentNoteY += STAFF_LINE_VERTICAL_PADDING;
+    currentNoteY += TAB_STAFF_LINE_VERTICAL_PADDING;
     if (beat.chord.fifthStr) {
         std::unique_ptr<Node> noteNode(new TextNode(*renderer, getString(beat.notes[1]), FONT_SIZE));
-        Point position(0, STAFF_LINE_VERTICAL_PADDING * 7 / 2);
+        Point position(0, TAB_STAFF_LINE_VERTICAL_PADDING * 7 / 2);
         noteNode->setPosition(position);
         beatNode->addChild(noteNode);
     }
     
-    currentNoteY += STAFF_LINE_VERTICAL_PADDING;
+    currentNoteY += TAB_STAFF_LINE_VERTICAL_PADDING;
     if (beat.chord.sixthStr) {
         std::unique_ptr<Node> noteNode(new TextNode(*renderer, getString(beat.notes[0]), FONT_SIZE));
-        Point position(0, STAFF_LINE_VERTICAL_PADDING * 9 / 2);
+        Point position(0, TAB_STAFF_LINE_VERTICAL_PADDING * 9 / 2);
         noteNode->setPosition(position);
         beatNode->addChild(noteNode);
     }
@@ -166,20 +183,28 @@ void RootNode::setTabNode(Node* staffNode) {
     tabNode->setPosition(position);
     
     std::unique_ptr<Node> tLetter(new TextNode(*renderer, "T", FONT_SIZE));
-    Point tPosition(0, STAFF_LINE_VERTICAL_PADDING);
+    Point tPosition(0, TAB_STAFF_LINE_VERTICAL_PADDING);
     tLetter->setPosition(tPosition);
     tabNode->addChild(tLetter);
     
     
     std::unique_ptr<Node> aLetter(new TextNode(*renderer, "A", FONT_SIZE));
-    Point aPosition(0, 2 * STAFF_LINE_VERTICAL_PADDING);
+    Point aPosition(0, 2 * TAB_STAFF_LINE_VERTICAL_PADDING);
     aLetter->setPosition(aPosition);
     tabNode->addChild(aLetter);
     
     std::unique_ptr<Node> bLetter(new TextNode(*renderer, "B", FONT_SIZE));
-    Point bPosition(0, 3 * STAFF_LINE_VERTICAL_PADDING);
+    Point bPosition(0, 3 * TAB_STAFF_LINE_VERTICAL_PADDING);
     bLetter->setPosition(bPosition);
     tabNode->addChild(bLetter);
+    
+    staffNode->addChild(tabNode);
+}
+
+void RootNode::setClueNode(Node* staffNode) {
+    std::unique_ptr<Node> tabNode(new NoteNode(*renderer, "clue.png"));
+    Point position(CHORD_MARGIN / 2, -NOTE_STAFF_LINE_VERTICAL_PADDING);
+    tabNode->setPosition(position);
     
     staffNode->addChild(tabNode);
 }

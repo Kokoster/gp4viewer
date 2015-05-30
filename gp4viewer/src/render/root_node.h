@@ -28,8 +28,10 @@ private:
     bool hasMeasure;
     int currentIndex;
     
-    void setMeasureNode(Node* rowStaff, std::unique_ptr<Node>& measureNode, const GP4Data& gp4Data);
+    void setMeasureNode(Node* rowStaff, Node* measureNode, const GP4Data& gp4Data);
 //    void setTabNode(std::unique_ptr<Node>& staffNode);
     void setTabNode(Node* staffNode);
+    void setClueNode(Node* staffNode);
     void setNoteNode(std::unique_ptr<Node>& beatNode, Beat beat);
+    void createStaff(Node** rowNoteStaffPtr, Node** rowTabStaffPtr, int* verticalPadding);
 };

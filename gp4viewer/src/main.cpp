@@ -13,6 +13,7 @@
 
 #include "point.h"
 #include "root_node.h"
+#include "config.h"
 
 #include "node_test_case.h"
 
@@ -82,14 +83,16 @@ int main(int argc, char const *argv[])
 //            }
 //
             if (e.type == SDL_MOUSEWHEEL) {
+                int lastPosition = -1 * rootNode.getPadding().size.h;
+                
 //                currentY = e.wheel.y;
                 Point position = rootNode.getPosition();
                 position.y += e.wheel.y;
                 if (position.y > 0) {
                     position.y = 0;
                 }
-                else if (position.y < rootNode.getChildren().size()) {
-                    position.y = rootNode.getPadding().size.h;
+                else if (position.y < lastPosition) {
+                    position.y = lastPosition;
                 }
                     
                 rootNode.setPosition(position);

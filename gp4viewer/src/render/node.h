@@ -36,6 +36,9 @@ public:
     virtual Point getPosition();
     
     virtual Rect getPadding();
+    virtual Rect getLinePadding();
+    
+    virtual int getHeight();
     
 protected:
     Node* parent;
