@@ -12,6 +12,7 @@
 
 Node::Node() {
     parent = nullptr;
+    padding = 0;
 }
 
 void Node::addChild(std::unique_ptr<Node>& child) {
@@ -69,6 +70,8 @@ Rect Node::getPadding() {
         rect.size.h += child->getPadding().size.h;
     }
     
+    rect.size.w += padding;
+    
     return rect;
 }
 
@@ -90,4 +93,8 @@ int Node::getHeight() {
     }
     
     return height;
+}
+
+void Node::setPadding(int padding) {
+    this->padding = padding;
 }

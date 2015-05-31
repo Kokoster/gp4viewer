@@ -40,9 +40,13 @@ public:
     
     virtual int getHeight();
     
+    virtual void setPadding(int padding);
+    
 protected:
     Node* parent;
     std::vector<std::unique_ptr<Node>> children;
+    
+    int padding;
     
     Point position;
 };

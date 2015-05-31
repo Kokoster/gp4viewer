@@ -15,6 +15,7 @@
 
 class MeasureNode : public Node {
 public:
+    MeasureNode();
     virtual void renderSelf(Renderer& renderer);
     virtual Rect getPadding();
 };

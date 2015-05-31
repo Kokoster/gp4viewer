@@ -9,6 +9,7 @@
 #include "note_node.h"
 
 #include <string>
+#include <iostream>
 
 #include "surface.h"
 
@@ -19,6 +20,7 @@ NoteNode::NoteNode(const Renderer& renderer, const std::string& image) {
 
 void NoteNode::renderSelf(Renderer& renderer) {
     SDL_Rect rect {getGlobalPosition().x, getGlobalPosition().y, texture->getWidth(), texture->getHeight()};
+    
     renderer.copy(texture->getTexture(), rect);
 }
 
